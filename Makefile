@@ -16,6 +16,9 @@ clean: # Remove build artifacts
 copy: # Copy the release build artifacts to the Duckov mod directory
 	mkdir -p $(DUCKOV_MOD_DIR)/BetterBulletNames
 	cp -r $(RELEASE_DIR)/BetterBulletNames.dll $(DUCKOV_MOD_DIR)/BetterBulletNames
+	cp -r $(RELEASE_DIR)/0Harmony.dll $(DUCKOV_MOD_DIR)/BetterBulletNames
+	cp -r info.ini $(DUCKOV_MOD_DIR)/BetterBulletNames
+	cp -r preview.png $(DUCKOV_MOD_DIR)/BetterBulletNames
 
 .PHONY: format
 format: # Format the codebase
