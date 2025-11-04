@@ -1,12 +1,19 @@
-using System;
-
 namespace BetterBulletNames
 {
-    public class ModBehaviour
+    public class ModBehaviour : Duckov.Modding.ModBehaviour
     {
-        public static void Main()
+        private const string Id = "jamtartley.BetterBulletNames";
+        private HarmonyLib.Harmony? harmony;
+
+        private void OnEnable()
         {
-            Console.WriteLine("Hello World!");
+            harmony = new HarmonyLib.Harmony(Id);
+            harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
+        }
+
+        private void OnDisable()
+        {
+            harmony?.UnpatchAll(Id);
         }
     }
 }
