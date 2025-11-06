@@ -1,4 +1,6 @@
-using System.Collections.Generic;
+using System;
+using System.Reflection;
+using System.Linq;
 using ItemStatsSystem;
 using HarmonyLib;
 
@@ -9,15 +11,13 @@ namespace BetterItemNames
     {
         static void Postfix(Item __instance, ref string __result)
         {
-            IEnumerable<Transform> matchers = new List<Transform>() {
-                new RegularBulletTransform(),
-                new SniperBulletTransform(),
-                new ShotgunShellTransform(),
-            };
+            var transforms = Assembly.GetExecutingAssembly().GetTypes().Where(
+                t => t.IsClass() && !t.IsAbstract && t.IsSubclassOf(typeof(Transform))
+            ).Select(t => (Transform)Activator.CreateInstance(t));
 
-            foreach (var matcher in matchers)
+            foreach (var transform in transforms)
             {
-                var replaced = matcher.Replacer(__result);
+                var replaced = transform.Replacer(__result);
                 if (replaced != null)
                 {
                     __result = replaced;
