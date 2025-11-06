@@ -1,8 +1,8 @@
-namespace BetterBulletNames
+namespace BetterItemNames
 {
     public class ModBehaviour : Duckov.Modding.ModBehaviour
     {
-        private const string Id = "jamtartley.BetterBulletNames";
+        private const string Id = "jamtartley.BetterItemNames";
         private HarmonyLib.Harmony? harmony;
 
         private void OnEnable()

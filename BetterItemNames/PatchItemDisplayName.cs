@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using ItemStatsSystem;
 using HarmonyLib;
 
-namespace BetterBulletNames
+namespace BetterItemNames
 {
     [HarmonyPatch(typeof(Item), nameof(Item.DisplayName), MethodType.Getter)]
     public class PatchItemDisplayName

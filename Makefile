@@ -2,7 +2,7 @@ default: help
 
 DUCKOV_LOG_DIR := ~/.local/share/Steam/steamapps/compatdata/3167020/pfx/drive_c/users/steamuser/AppData/LocalLow/TeamSoda/Duckov
 DUCKOV_MOD_DIR := ~/.local/share/Steam/steamapps/common/Escape\ from\ Duckov/Duckov_Data/Mods
-RELEASE_DIR := BetterBulletNames/bin/Release/netstandard2.1
+RELEASE_DIR := BetterItemNames/bin/Release/netstandard2.1
 
 .PHONY: build
 build: # Generate the release build artifacts
@@ -14,11 +14,11 @@ clean: # Remove build artifacts
 
 .PHONY: copy
 copy: # Copy the release build artifacts to the Duckov mod directory
-	mkdir -p $(DUCKOV_MOD_DIR)/BetterBulletNames
-	cp -r $(RELEASE_DIR)/BetterBulletNames.dll $(DUCKOV_MOD_DIR)/BetterBulletNames
-	cp -r $(RELEASE_DIR)/0Harmony.dll $(DUCKOV_MOD_DIR)/BetterBulletNames
-	cp -r info.ini $(DUCKOV_MOD_DIR)/BetterBulletNames
-	cp -r preview.png $(DUCKOV_MOD_DIR)/BetterBulletNames
+	mkdir -p $(DUCKOV_MOD_DIR)/BetterItemNames
+	cp -r $(RELEASE_DIR)/BetterItemNames.dll $(DUCKOV_MOD_DIR)/BetterItemNames
+	cp -r $(RELEASE_DIR)/0Harmony.dll $(DUCKOV_MOD_DIR)/BetterItemNames
+	cp -r info.ini $(DUCKOV_MOD_DIR)/BetterItemNames
+	cp -r preview.png $(DUCKOV_MOD_DIR)/BetterItemNames
 
 .PHONY: format
 format: # Format the codebase
